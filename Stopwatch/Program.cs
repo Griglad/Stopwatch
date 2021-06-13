@@ -13,23 +13,18 @@ namespace Stopwatch
             int milliseconds = 3000;
 
 
-            //Begin(stopWatch);
-            // Thread.Sleep(milliseconds);
-            Terminate(stopWatch);
-            ShowResult(stopWatch);
-
-
-            /*
             Begin(stopWatch);
             Thread.Sleep(milliseconds);
             Terminate(stopWatch);
             ShowResult(stopWatch);
-            /*
 
+
+            
             Begin(stopWatch);
             Thread.Sleep(milliseconds);
             Terminate(stopWatch);
             ShowResult(stopWatch);
+            
 
             Begin(stopWatch);
             Thread.Sleep(milliseconds);
@@ -40,7 +35,12 @@ namespace Stopwatch
             Thread.Sleep(milliseconds);
             Terminate(stopWatch);
             ShowResult(stopWatch);
-            */
+
+            Begin(stopWatch);
+            Thread.Sleep(milliseconds);
+            Terminate(stopWatch);
+            ShowResult(stopWatch);
+          
 
         }
 
@@ -81,11 +81,7 @@ namespace Stopwatch
         static void ShowResult(Stopwatch stopWatch)
         {
 
-
-
             stopWatch.ShowElapsedTime();
-
-
 
         }
 
