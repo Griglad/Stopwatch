@@ -58,7 +58,7 @@ namespace Stopwatch
         {
             if (!_isRunning)
             {
-                throw new InvalidOperationException("You cannot stop the watch, you haven't even start it");
+                throw new InvalidOperationException("You cannot stop the watch, you didn't even start it");
 
             }
 
