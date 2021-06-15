@@ -4,14 +4,14 @@ using System.Threading;
 
 namespace Stopwatch
 {
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
 
-            var stopWatch = new StopWatch();
+            var stopWatch = new Stopwatch();
             int milliseconds = 3000;
-          
+
 
             Begin(stopWatch);
             Thread.Sleep(milliseconds);
@@ -45,7 +45,7 @@ namespace Stopwatch
         }
 
 
-        static void Begin(StopWatch stopWatch)
+        static void Begin(Stopwatch stopWatch)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace Stopwatch
             }
 
         }
-        static void Terminate(StopWatch stopWatch)
+        static void Terminate(Stopwatch stopWatch)
         {
 
             try
@@ -78,7 +78,7 @@ namespace Stopwatch
 
             }
         }
-        static void ShowResult(StopWatch stopWatch)
+        static void ShowResult(Stopwatch stopWatch)
         {
 
             stopWatch.ShowElapsedTime();
