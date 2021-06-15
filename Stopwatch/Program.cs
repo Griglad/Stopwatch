@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace Stopwatch
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -19,12 +19,12 @@ namespace Stopwatch
             ShowResult(stopWatch);
 
 
-            
+
             Begin(stopWatch);
             Thread.Sleep(milliseconds);
             Terminate(stopWatch);
             ShowResult(stopWatch);
-            
+
 
             Begin(stopWatch);
             Thread.Sleep(milliseconds);
@@ -40,7 +40,7 @@ namespace Stopwatch
             Thread.Sleep(milliseconds);
             Terminate(stopWatch);
             ShowResult(stopWatch);
-          
+
 
         }
 

@@ -6,32 +6,32 @@ using System.Threading.Tasks;
 
 namespace Stopwatch
 {
-    class Stopwatch
+   public class Stopwatch
     {
 
         public TimeSpan CurrentTime { get; private set; }
-        private bool _isRunning;
-        private Dictionary<string, TimeSpan> _durations = new Dictionary<string, TimeSpan>();
-        private int _counterAttempt = 0;
-        private TimeSpan _timeIncrement = new TimeSpan();
+        public bool IsRunning { get; private set; }
+        public Dictionary<string, TimeSpan> Durations { get; private set; } = new Dictionary<string, TimeSpan>();
+        public int CounterAttempt { get; private set; } = 0;
+        public TimeSpan TimeIncrement { get; private set; } = new TimeSpan();
 
 
-    
+
         public Dictionary<string, TimeSpan> ElapsedTime
         {
 
             get
             {
-                for (int i = _counterAttempt - 1; i < _durations.Count; i++)
+                for (int i = CounterAttempt - 1; i < Durations.Count; i++)
                 {
 
-                    var item = _durations.ElementAt(i);
-                    _timeIncrement += item.Value;
-                    _durations[item.Key] = _timeIncrement;
+                    var item = Durations.ElementAt(i);
+                    TimeIncrement += item.Value;
+                    Durations[item.Key] = TimeIncrement;
 
                 }
 
-                return _durations;
+                return Durations;
             }
 
 
@@ -41,14 +41,14 @@ namespace Stopwatch
         public void Start()
         {
 
-            if (_isRunning)
+            if (IsRunning)
             {
 
                 throw new InvalidOperationException("You cannot start the stopwatch twice");
             }
             CurrentTime = DateTime.Now.TimeOfDay;
-            _isRunning = true;
-            _counterAttempt++;
+            IsRunning = true;
+            CounterAttempt++;
 
         }
 
@@ -56,14 +56,14 @@ namespace Stopwatch
 
         public void Stop()
         {
-            if (!_isRunning)
+            if (!IsRunning)
             {
                 throw new InvalidOperationException("You cannot stop the watch, you didn't even start it");
 
             }
 
-            _durations.Add("Attempt " + _counterAttempt, (this.CurrentTime - DateTime.Now.TimeOfDay));
-            _isRunning = false;
+            Durations.Add("Attempt " + CounterAttempt, (this.CurrentTime - DateTime.Now.TimeOfDay));
+            IsRunning = false;
 
         }
 
@@ -71,10 +71,10 @@ namespace Stopwatch
         {
 
             var elapsed = ElapsedTime;
-            for (int i = _counterAttempt - 1; i < elapsed.Count; i++)
+            for (int i = CounterAttempt - 1; i < elapsed.Count; i++)
             {
 
-                var item = _durations.ElementAt(i);
+                var item = Durations.ElementAt(i);
                 Console.WriteLine(item.Key + ":" + item.Value.ToString("h'h 'm'm 's's'"));
 
             }
